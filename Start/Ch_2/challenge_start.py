@@ -16,8 +16,25 @@ def string_combiner(*args, unique=False):
     result = ""
 
     # YOUR CODE HERE
-
+    """
+    string_combiner(*args, unique=False)
+    Retunrs a string that merges all strings and inst in 'args'
+    Parameters:
+    args: one or more strings and ints. Other types are ignored
+    unique: if True, the result string contains only 1 instance of each character
+    """
+    result = ""
+    for arg in args:
+        if isinstance(arg, int):
+            result+= str(arg)
+        elif isinstance(arg, str):
+            result+= arg
+    #if unique is true, we need to convert to a set and then a string
+    if unique:
+        newresult =  set(result)
+        result = "".join(newresult)
     return result
+            
 
 
 # test code:
